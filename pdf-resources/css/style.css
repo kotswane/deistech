@@ -1,0 +1,154 @@
+@page {
+    size: letter;
+    @bottom-right {
+    content: "Page: " counter(page) "/" counter(pages);
+ }
+@bottom-center{ 
+ content: "Registered with the National Credit Regulator – Reg# NCR-CB5";
+ }
+}
+
+body {
+    font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.titles-style {
+    color: #030000;
+    font-size: 16px;
+    font-weight: bold;
+}
+.label{
+ display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  width: 400px;
+  border: 9px solid #dddddd;
+ margin-right: 20px;
+}
+.span-value {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+.hr_rule{
+	 border: none;
+    height: 3px;
+    color: red; /* old IE */
+    background-color: rgb(165, 42, 42); /* Modern Browsers */
+}
+
+.title-head{
+	font-size: 16px;
+	color: blue;
+	font-style: normal;
+	color: rgb(68, 172, 4);
+	font-weight: bolder;
+	
+}
+.subtitle-head{
+	font-size: 12px;
+	color: blue;
+	font-style: normal;
+	color: rgb(68, 172, 4);
+	font-weight: bolder;
+}
+.td-label{
+ padding: 6px;
+ border-bottom: 1px solid #dddddd;
+ background-color: #dddddd;	
+}
+.td-value{
+ padding: 6px;
+ border-bottom: 1px solid #dddddd;
+ }
+ .th-size-first{
+ width: 20%;
+ }
+ .th-size-second{
+ width: 80%;
+ }
+.tr-label{
+  border-bottom: 1px solid #dddddd;	
+}
+
+.th-size-first-fraud{
+ width: 30%;
+ }
+ .th-size-second-fraud{
+ width: 90%;
+ }
+ .th-size-first-first-div{
+ width: 8%;
+ }
+ .th-size-first-second-div{
+ width: 7%;
+ }
+ .th-size-second-first-div{
+ width: 10%;
+ }
+ .th-size-first-second-div{
+ width: 30%;
+ }
+.sub-personal {
+  width: 1900px;
+  margin: 0 auto;
+  font-size: 12;
+}
+.col-table-first-div {
+  display: inline-block;
+  width: 15%;
+  height: 200px;
+ 
+}
+.col-table-second-div {
+  display: inline-block;
+  width: 30%;
+  height: 200px;
+ 
+}
+
+.key-label{
+width: 800px;
+margin-right: 80px;
+background-color: #dddddd;
+}
+.value-label{
+ width: 400px;
+ 
+}
+.div-label-key-value{
+	 border-bottom: 1px solid #dddddd;
+}
+.hr-line {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+.table-list {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+ 
+}
+.td-list{
+ text-align: left;
+  padding: 2px;	
+} 
+
+.th-list {
+  border: 1px solid white;
+  text-align: left;
+  padding: 2px;
+  background-color: #dddddd;
+}
+
+tr.border_bottom td {
+  border-bottom: 1px solid #dddddd;
+}
+
+tr.border_top th {
+  border-top: 1px solid #dddddd;
+}

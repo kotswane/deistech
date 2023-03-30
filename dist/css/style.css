@@ -1,0 +1,14 @@
+@page {
+    size: letter;
+}
+
+body {
+    font-family: Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.titles-style {
+    color: #030000;
+    font-size: 16px;
+    font-weight: bold;
+}

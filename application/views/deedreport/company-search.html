@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+<head>
+    <title>Company Search</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>LKCentrix Solutions PTY LTD</h1>
+    <ol class="breadcrumb">
+        <li><a href="/lkcentrixreportservice/deedsenquiry/company-search" ><i class="fa fa-dashboard"></i> Dashboard</a></li><li>Deed Report</li>
+        <li class="active">Company Search</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">DeedOffice Search</h3>
+            <div class="box-tools pull-right">
+                <a th:href="@{/deedsenquiry/company-search}" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
+            </div>
+        </div>
+           <!-- Error Alert -->
+         <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}" role="alert"></div>
+		
+           <form data-toggle="validator" role="DeedOffice Search form" th:object="${deedsRequest}" th:action="@{/deedsenquiry/company-search}" method="post">
+             <div class="box-body">
+                 <br>
+
+                 <div class="form-group">
+                    <select class="form-control" th:field="*{deedsOffice}" id="listdeedoffice" required>
+					<option value="">Please Select Deed Office</option>
+					<option th:each="deedOffice : ${deedOffices}" th:value="${deedOffice}" th:text="${deedOffice}" th:selected="${deedOffice}"></option>
+					</select>
+                 </div>
+                 <div class="form-group">
+                           <input type="text"  class="form-control"  th:field="*{regNo1}" id="regNo1" placeholder="Business Registration Number"/>
+                       </div>
+                    <div class="form-group">
+                           <input type="text"  class="form-control"  th:field="*{businessName}" id="businessName" placeholder="Business Name"/>
+                   </div>
+              </div>
+            <div class="box-footer">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

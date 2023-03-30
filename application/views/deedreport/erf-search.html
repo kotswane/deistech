@@ -1,0 +1,87 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+<head>
+    <title>ERF Search</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>LKCentrix Solutions PTY LTD</h1>
+    <ol class="breadcrumb">
+        <li><a href="/lkcentrixreportservice/deedsenquiry/erf-search" ><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">ERF Search</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">ERF Search</h3>
+            <div class="box-tools pull-right">
+                <a th:href="@{/deedsenquiry/erf-search}" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
+            </div>
+        </div>
+           <!-- Error Alert -->
+         <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}" role="alert"></div>
+		
+        <form data-toggle="validator" role="DeedOffice Search form" th:object="${deedsRequest}" th:action="@{/deedsenquiry/erfdeed-list}" method="post">
+             <div class="box-body">
+               <br>
+
+                 <div class="form-group">
+                 <label class="col-form-label">Deed Office</label>
+                    <select class="form-control" th:field="*{deedsOffice}" id="listdeedoffice" required>
+					<option value="">Please Select Deed Office</option>
+					<option th:each="deedOffice : ${deedOffices}" th:value="${deedOffice}" th:text="${deedOffice}" th:selected="${deedOffice}"></option>
+					</select>
+                 </div>
+                      <div class="form-group">
+                      <label class="col-form-label">ERF No</label>
+                           <input type="text"  class="form-control"  th:field="*{erfNo}" id="ERFNo" placeholder="Erf Number"/>
+                       </div>
+                        <div class="form-group">
+                        <label class="col-form-label">Township Name</label>
+                           <input type="text"  class="form-control"  th:field="*{townshipName}" id="townshipName" placeholder="Township"/>
+                       </div>
+                        <div class="form-group">
+                        <label class="col-form-label">Portion Number</label>
+                           <input type="text"  class="form-control"  th:field="*{portionNo}" id="portionNo" placeholder="Portion Number"/>
+                       </div>
+            </div>
+            <div class="box-footer">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+     <div th:if="${ not#lists.isEmpty(propertyList)}">
+      	 <h5><span><strong>Search Results List</strong></span></h5>
+          <table class="table table-striped">
+            <tr>
+            <th>Reference No</th>
+              <th>Title Deed Number</th>
+              <th>Property Type</th>
+              <th>Buyer</th>
+              <th>Seller</th>
+              <th>Portion No.</th>
+              <th>Stand No.</th>
+              <th>View</th>
+            </tr>
+            <tr th:each="row : ${propertyList}">
+              <td th:text="${row.reference}"></td>
+              <td th:text="${row.titleDeedNo}"></td>
+              <td th:text="${row.propertyTypeDesc}"></td>
+               <td th:text="${row.buyerName}"></td>
+                <td th:text="${row.sellerName}"></td>
+                <td th:text="${row.portionNo}"></td>
+                <td th:text="${row.standNo}"></td>
+              <td>
+               <a type="button"  th:href="@{'/deedsenquiry/view-individualtrace-search/'+${row.enquiryId}+'/'+${row.enquiryResultId}}"  class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;View</a> 
+              </td>
+            </tr>
+          </table>
+       </div>
+        <div>
+         <span th:if="${#lists.isEmpty(propertyList)}" th:text="${errorMessage}"></span>
+       </div>
+</div>
+</body>
+</html>

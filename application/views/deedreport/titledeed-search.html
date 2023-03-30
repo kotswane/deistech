@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+<head>
+    <title>Address Search</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>LKCentrix Solutions PTY LTD</h1>
+    <ol class="breadcrumb">
+        <li><a href="/lkcentrixreportservice/deedsenquiry/titledeed-search" ><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">DeedOffice Search Client</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">DeedOffice Search</h3>
+            <div class="box-tools pull-right">
+                <a th:href="@{/deedsenquiry/titledeed-search}" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
+            </div>
+        </div>
+           <!-- Error Alert -->
+         <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}" role="alert"></div>
+		
+        <form data-toggle="validator" role="DeedOffice Search form" th:object="${deedsRequest}" th:action="@{/deedsenquiry/titledeed-search}" method="post">
+             <div class="box-body">
+                <br>
+              <div class="form-group">
+                    <select class="form-control" th:field="*{deedsOffice}" id="listdeedoffice" required>
+					<option value="">Please Select Deed Office</option>
+					<option th:each="deedOffice : ${deedOffices}" th:value="${deedOffice}" th:text="${deedOffice}" th:selected="${deedOffice}"></option>
+					</select>
+                 </div>
+ 
+                    <div class="form-group">
+                           <input type="text"  class="form-control"  th:field="*{bondAccno}" id="bondAccno" placeholder="Bond Account Number"/>
+                   </div>
+                    <div class="form-group">
+                            <input type="text" class="form-control" th:field="*{titleDeedNo}" id="titleDeedNo" placeholder="Title Deed Number"/>
+                        </div>
+            </div>
+            <div class="box-footer">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

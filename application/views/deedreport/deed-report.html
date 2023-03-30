@@ -1,0 +1,157 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Deed Report</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1 th:if ="${deedReportRequest.subscriberInputDetails.subscriberName}" th:text = "${deedReportRequest.subscriberInputDetails.subscriberName}"></h1>
+<ol class="breadcrumb">
+    <li><a href="/lkcentrixreportservice/deedsenquiry/individual-search"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Trace Report</li>
+</ol>
+</section>
+<div layout:fragment="content">
+    <div class="box">
+            <div class="box-header with-border">
+            <h3 class="box-title" th:if ="${deedReportRequest.subscriberInputDetails}" th:text = "${deedReportRequest.subscriberInputDetails.enquiryType +' Report'}"></h3>
+           <div class="box-tools pull-right">
+           <div>
+     <a th:href="@{/deedsenquiry/downloaddeedreport-pdf}">
+        <img th:src="@{/dist/img/pdf_icon.png}" height="35" width="35"/>
+        <span>Download PDF Document</span>
+    </a>
+
+</div>
+	  <br clear="all" />
+            </div>
+        </div>
+        
+
+        <div class="box-body no-padding">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Enquiry Input Details</div>
+                <div class="panel-body">
+                    <div class="col">
+                      <h4><span class="label label-default"> Enquiry Date</span>&nbsp;&nbsp;<span th:text = "${deedReportRequest.subscriberInputDetails.enquiryDate}"></span></h4>
+                     <h4><span class="label label-default">Enquiry Type</span>&nbsp;&nbsp; <span th:text = "${deedReportRequest.subscriberInputDetails.enquiryType}"></span></h4>
+                     <h4><span class="label label-default">Subscriber Name</span>&nbsp;&nbsp; <span th:text = "${deedReportRequest.subscriberInputDetails.subscriberName}"></span></h4>
+                     <h4><span class="label label-default">Subscriber User Name</span>&nbsp;&nbsp; <span th:text = "${deedReportRequest.subscriberInputDetails.subscriberUserName}"></span></h4>
+                      <h4><span class="label label-default">Enquiry Input</span>&nbsp;&nbsp; <span th:text = "${deedReportRequest.subscriberInputDetails.enquiryInput}"></span></h4><br>
+                    </div>
+                </div>
+              </div>
+
+             <div class="panel panel-primary">
+                <div class="panel-heading">Property Information</div>
+                <div class="panel-body">
+                    <div class="col">
+                     <div class="col-xs-4 ">Property Type&nbsp;&nbsp;<strong><span th:text = "${deedReportRequest.propertyInformation.propertyType}"></span></strong></div>
+                    <div class="col-xs-4 ">Street Name&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.propertyInformation.streetName}"></span></strong></div>
+                     <div class="col-xs-4 ">Municipal Suburb&nbsp;&nbsp;<strong> <span th:text = "${deedReportRequest.propertyInformation.suburb}"></span></strong></div>
+                    <div class="col-xs-4 ">Township Name&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.propertyInformation.townshipName}"></span></strong></div>
+                     
+                     <div class="col-xs-4 ">Stand No&nbsp;&nbsp;<strong><span th:text = "${deedReportRequest.propertyInformation.standNo}"></span></strong></div>
+                     <div class="col-xs-4 ">Street No&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.propertyInformation.streetNumber}"></span></strong></div>
+                    <div class="col-xs-4 ">Municipal City&nbsp;&nbsp;<strong> <span th:text = "${deedReportRequest.propertyInformation.city}"></span></strong></div>
+                    <div class="col-xs-4 ">Province&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.propertyInformation.porovince}"></span></strong></div>
+                    
+                    
+                    </div>
+                </div>
+              </div> 
+              
+              <div class="panel panel-primary">
+                <div class="panel-heading">Property Registration Information Summary</div>
+                <div class="panel-body">
+                    <div class="col">
+                     <div class="col-xs-4 ">Deed Office&nbsp;&nbsp;<strong><span th:text = "${deedReportRequest.propertyRegistrationInformation.deedsOffice}"></span></strong></div>
+                    <div class="col-xs-4 ">Title Deed Number&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.propertyRegistrationInformation.titleDeedNo}"></span></strong></div>
+                     <div class="col-xs-4 ">Transfer Date&nbsp;&nbsp;<strong> <span th:text = "${deedReportRequest.propertyRegistrationInformation.transferDate}"></span></strong></div>
+                    <div class="col-xs-4 ">Sold Price&nbsp;&nbsp; <strong><span th:text = "${'R'+deedReportRequest.propertyRegistrationInformation.soldPrice}"></span></strong></div>
+                     
+                     <div class="col-xs-4 ">Transfer ID&nbsp;&nbsp;<strong><span th:text = "${deedReportRequest.propertyRegistrationInformation.transferId}"></span></strong></div>
+                     <div class="col-xs-4 ">Old Title Deed Number&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.propertyRegistrationInformation.oldtitleDeedno}"></span></strong></div>
+                    <div class="col-xs-4 ">Purchase Date&nbsp;&nbsp;<strong> <span th:text = "${deedReportRequest.propertyRegistrationInformation.purchaseDate}"></span></strong></div>
+                    <div class="col-xs-4 ">Erf Size&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.propertyRegistrationInformation.erfSize}"></span></strong></div>
+                    
+                    
+                    </div>
+                </div>
+              </div> 
+              
+               <div class="panel panel-primary">
+                <div class="panel-heading">Buyer and Seller Information Summary</div>
+                <div class="panel-body">
+                    <div class="col">
+                     <div class="col-xs-4 ">Buyer Type Code&nbsp;&nbsp;<strong><span th:text = "${deedReportRequest.buyerandSellerInformation.buyerTypeCode}"></span></strong></div>
+                    <div class="col-xs-4 ">Buyer ID Number&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.buyerandSellerInformation.buyerIDNo}"></span></strong></div>
+                     <div class="col-xs-4 ">Buyer Name&nbsp;&nbsp;<strong> <span th:text = "${deedReportRequest.buyerandSellerInformation.buyerName}"></span></strong></div>
+                    <div class="col-xs-4 ">Buyer Martial Status&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.buyerandSellerInformation.buyerMaritalStatus}"></span></strong></div>
+                     
+                     <div class="col-xs-4 ">Seller Type Code&nbsp;&nbsp;<strong><span th:text = "${deedReportRequest.buyerandSellerInformation.sellerTypeCode}"></span></strong></div>
+                     <div class="col-xs-4 ">Seller ID Number&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.buyerandSellerInformation.sellerIDNo}"></span></strong></div>
+                    <div class="col-xs-4 ">Seller Name&nbsp;&nbsp;<strong> <span th:text = "${deedReportRequest.buyerandSellerInformation.sellerName}"></span></strong></div>
+                    <div class="col-xs-4 ">Seller Martial Status&nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.buyerandSellerInformation.sellerMaritalStatus}"></span></strong></div>
+                    
+                    
+                    </div>
+                </div>
+              </div> 
+              
+              <div class="panel panel-primary">
+                <div class="panel-heading">Bond Information</div>
+                <div class="panel-body">
+                    <div class="col">
+                     <div class="col-xs-4 ">Bond Holder's Name&nbsp;&nbsp;<strong><span th:text = "${deedReportRequest.bondInformation.bondHoldername}"></span></strong></div>
+                    <div class="col-xs-4 ">Bond Registered Amount &nbsp;&nbsp; <strong><span th:text = "${'R'+deedReportRequest.bondInformation.bondAmount}"></span></strong></div>
+                     <div class="col-xs-4 ">Bond Account Number&nbsp;&nbsp;<strong> <span th:text = "${'R'+deedReportRequest.bondInformation.bondAccountNo}"></span></strong></div>
+                    </div>
+                </div>
+              </div>
+              
+               <div class="panel panel-primary">
+                <div class="panel-heading">Attorney Information</div>
+                <div class="panel-body">
+                    <div class="col">
+                     <div class="col-xs-4 ">Attorney Firm No&nbsp;&nbsp;<strong><span th:text = "${deedReportRequest.attorneyInformation.attorneyFirmNo}"></span></strong></div>
+                    <div class="col-xs-4 ">Captured Date &nbsp;&nbsp; <strong><span th:text = "${deedReportRequest.attorneyInformation.externalSourceUpdatedDate}"></span></strong></div>
+                     <div class="col-xs-4 ">Attorney File No&nbsp;&nbsp;<strong> <span th:text = "${deedReportRequest.attorneyInformation.attorneyFileNo}"></span></strong></div>
+                      <div class="col-xs-4 ">Title Deed Fees&nbsp;&nbsp;<strong> <span th:text = "${deedReportRequest.attorneyInformation.titleDeedFee}"></span></strong></div>
+                    </div>
+                </div>
+              </div> 
+              
+               <div class="panel panel-primary">
+                <div class="panel-heading">Property History</div>
+                <div class="panel-body">
+              <table class="table table-striped" th:if="${not #lists.isEmpty(deedReportRequest.propertyHistory)}">
+                  <tr>
+                <th>Title Deed Number</th>
+                <th>Property Type</th>
+                <th>Buyer Name</th>
+                <th>Seller Name</th>
+                 <th>Sold Price</th>
+                 <th>Purchase Date</th>
+                </tr>
+                <tr th:each="row : ${deedReportRequest.propertyHistory}">
+                <td th:text = "${row.titleDeedNo}"></td>
+                <td th:text = "${row.propertyType}"></td>
+                <td th:text = "${row.buyerName}"></td>
+                <td th:text = "${row.sellerName}"></td>
+                <td th:text = "${'R'+row.soldPrice}"></td>
+                <td th:text = "${row.purchaseDate}"></td>
+                </tr>
+                
+                </table>
+                     <div>
+                     <span th:if="${#lists.isEmpty(deedReportRequest.propertyHistory)}" th:text="${deedReportRequest.deedReportMessage.noProperyHistory}"></span>
+                </div>
+                </div>
+              </div>   
+    </div>
+</div>
+</div>
+</body>
+</html>
