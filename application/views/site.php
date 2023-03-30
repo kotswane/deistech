@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>dist/css/LkCentrix.min.css">
     
     <link rel="stylesheet" href="<?php echo base_url();?>dist/css/skins/skin-blue.min.css">
-    <link rel="icon" href="<?php echo base_url();?>dist/img/lk-Logo.png">
+    <link rel="icon" href="<?php echo base_url();?>dist/img/icon.gif">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 	
 	<!-- ./wrapper -->
