@@ -110,7 +110,7 @@
 	</div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2023 Deis Tech Technologies.</strong>
+        <strong>Copyright &copy; 2023 Deis Technologies.</strong>
     </footer>
 </div>
 <style>
