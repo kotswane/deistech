@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>dist/css/skin-blue.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="<?php echo base_url();?>plugins/iCheck/square/blue.css">
-    <link rel="icon" href="<?php echo base_url();?>dist/img/icon.png">
+    <link rel="icon" href="<?php echo base_url();?>dist/img/icons.png">
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 
